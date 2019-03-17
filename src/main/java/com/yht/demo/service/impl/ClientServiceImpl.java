@@ -8,6 +8,7 @@ import com.yht.demo.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Map;
 
 @Service
@@ -21,6 +22,7 @@ public class ClientServiceImpl implements IClientService {
 		Client client = new Client();
 		client.setName(clientName);
 		client.setType(Integer.valueOf(type));
+		client.setCreateTime(new Date());
 		clientMapper.insert(client);
 	}
 
