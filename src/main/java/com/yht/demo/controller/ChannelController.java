@@ -19,23 +19,23 @@ import java.util.Map;
 @RestController
 public class ChannelController extends BaseController {
 
-	@Autowired
-	private IChannelService channelService;
+    @Autowired
+    private IChannelService channelService;
 
-	@PostMapping("/addChannel")
-	@ApiOperation(value = "新增渠道")
-	public Result addChannel(@RequestParam String channelName) {
-		channelService.addChannel(channelName);
-		return Result.success("成功");
-	}
+    @PostMapping("/addChannel")
+    @ApiOperation(value = "新增渠道")
+    public Result addChannel(@RequestParam String channelName) {
+        channelService.addChannel(channelName);
+        return Result.success("成功");
+    }
 
 
-	@PostMapping("/getChannelList")
-	@ApiOperation(value = "获取渠道列表")
-	public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-		IPage<Map<String, String>> channelList = channelService.getChannelList(pageNum, pageSize);
-		return Result.success(channelList);
-	}
+    @PostMapping("/getChannelList")
+    @ApiOperation(value = "获取渠道列表")
+    public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+        IPage<Map<String, String>> channelList = channelService.getChannelList(pageNum, pageSize);
+        return Result.success(channelList);
+    }
 
 
 }

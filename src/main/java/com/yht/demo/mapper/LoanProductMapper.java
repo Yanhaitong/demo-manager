@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
 import com.yht.demo.entity.dto.LoanProductReturnDTO;
-import com.yht.demo.entity.dto.ProductListReceiveDTO;
 import com.yht.demo.entity.model.LoanProduct;
 import org.apache.ibatis.annotations.Param;
 

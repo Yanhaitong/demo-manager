@@ -9,13 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface ILoanProductInfoService {
 
-  void addLoanProductInfo(LoanProductInfo loanProductInfo);
+    void addLoanProductInfo(LoanProductInfo loanProductInfo);
 
-  IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize);
 
-  void hiddenOrShowProduct(String productId, String isHide);
+    IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize);
 
-  void updateLoanProduct(LoanProductInfo loanProductInfo);
 
-  Result uploadCredentials(String bucket);
+    void hiddenOrShowProduct(String productId, String isHide);
+
+
+    void updateLoanProduct(LoanProductInfo loanProductInfo);
+
+
+    Result uploadCredentials(String bucket);
+
+
 }
