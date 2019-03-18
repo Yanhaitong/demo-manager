@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.entity.model.Channel;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface ChannelMapper extends BaseMapper<Channel> {
 	List<String> getAllChannels();
 
 
-	IPage<Map<String, String>> getChannelList(Page page);
+	IPage<Map<String, String>> getChannelList(@Param("page") Page page, @Param("channelName") String channelName);
 
 
 }

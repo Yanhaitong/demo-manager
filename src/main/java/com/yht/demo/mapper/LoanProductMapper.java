@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.entity.dto.LoanProductReturnDTO;
 import com.yht.demo.entity.model.LoanProduct;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -16,7 +17,7 @@ import com.yht.demo.entity.model.LoanProduct;
  */
 public interface LoanProductMapper extends BaseMapper<LoanProduct> {
 
-	IPage<LoanProductReturnDTO> getLoanProductList(Page page);
+	IPage<LoanProductReturnDTO> getLoanProductList(@Param("page") Page page, @Param("title") String title);
 
 
 }

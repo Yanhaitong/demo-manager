@@ -7,6 +7,7 @@ import com.yht.demo.mapper.ChannelMapper;
 import com.yht.demo.service.IChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.Map;
@@ -26,11 +27,24 @@ public class ChannelServiceImpl implements IChannelService {
     }
 
     @Override
-    public IPage<Map<String, String>> getChannelList(Integer pageNum, Integer pageSize) {
+    public IPage<Map<String, String>> getChannelList(Integer pageNum, Integer pageSize, String channelName) {
         Page page = new Page();
         page.setCurrent(pageNum);
         page.setSize(pageSize);
-        IPage<Map<String, String>> channelList = channelMapper.getChannelList(page);
+        IPage<Map<String, String>> channelList = channelMapper.getChannelList(page, channelName);
         return channelList;
+    }
+
+    @Override
+    public void updateChannel(String id, String channelName) {
+        Channel channel = new Channel();
+        channel.setId(Integer.valueOf(id));
+        channel.setUpdateTime(new Date());
+        if (StringUtils.isEmpty(channelName)){//删除操作
+            channel.setDelFlag(1);
+        }else {
+            channel.setName(channelName);
+        }
+        channelMapper.updateById(channel);
     }
 }

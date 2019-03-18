@@ -7,6 +7,7 @@ import com.yht.demo.mapper.ClientMapper;
 import com.yht.demo.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.Map;
@@ -28,12 +29,25 @@ public class ClientServiceImpl implements IClientService {
 
 
 	@Override
-	public IPage<Map<String, String>> getClientList(Integer pageNum, Integer pageSize) {
+	public IPage<Map<String, String>> getClientList(Integer pageNum, Integer pageSize, String clientName) {
 		Page page = new Page();
 		page.setCurrent(pageNum);
 		page.setSize(pageSize);
-		IPage<Map<String, String>> clientList = clientMapper.getClientList(page);
+		IPage<Map<String, String>> clientList = clientMapper.getClientList(page, clientName);
 		return clientList;
+	}
+
+	@Override
+	public void updateClient(String id, String clientName) {
+		Client client = new Client();
+		client.setId(Integer.valueOf(id));
+		client.setUpdateTime(new Date());
+		if (StringUtils.isEmpty(clientName)){//删除操作
+			client.setDelFlag(1);
+		}else {
+			client.setName(clientName);
+		}
+		clientMapper.updateById(client);
 	}
 
 

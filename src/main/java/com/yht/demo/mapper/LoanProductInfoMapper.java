@@ -25,7 +25,7 @@ public interface LoanProductInfoMapper extends BaseMapper<LoanProductInfo> {
 	List<Map<String, String>> getAllProducts();
 
 
-	IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Page page);
+	IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(@Param("page") Page page, @Param("title") String title);
 
 
 	void hiddenOrShowProduct(@Param("productId") String productId, @Param("isHide") String isHide);

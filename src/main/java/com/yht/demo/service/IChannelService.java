@@ -8,10 +8,11 @@ import java.util.Map;
 @Transactional
 public interface IChannelService {
 
-	void addChannel(String channelName);
+    void addChannel(String channelName);
 
 
-	IPage<Map<String, String>> getChannelList(Integer pageNum, Integer pageSize);
+    IPage<Map<String, String>> getChannelList(Integer pageNum, Integer pageSize, String channelName);
 
 
+    void updateChannel(String id, String channelName);
 }

@@ -12,7 +12,7 @@ public interface ILoanProductInfoService {
     void addLoanProductInfo(LoanProductInfo loanProductInfo);
 
 
-    IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize);
+    IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize, String title);
 
 
     void hiddenOrShowProduct(String productId, String isHide);

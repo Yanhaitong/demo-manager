@@ -10,5 +10,7 @@ public interface IClientService {
 
     void addClient(String clientName, String type);
 
-    IPage<Map<String, String>> getClientList(Integer pageNum, Integer pageSize);
+    IPage<Map<String, String>> getClientList(Integer pageNum, Integer pageSize, String clientName);
+
+    void updateClient(String id, String clientName);
 }

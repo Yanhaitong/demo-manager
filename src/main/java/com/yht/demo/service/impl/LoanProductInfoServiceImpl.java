@@ -31,11 +31,11 @@ public class LoanProductInfoServiceImpl implements ILoanProductInfoService {
     }
 
     @Override
-    public IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize) {
+    public IPage<LoanProductInfoReturnDTO> getLoanProductInfoList(Integer pageNum, Integer pageSize, String title) {
         Page page = new Page();
         page.setCurrent(pageNum);
         page.setSize(pageSize);
-        IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoMapper.getLoanProductInfoList(page);
+        IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoMapper.getLoanProductInfoList(page, title);
         return loanProductInfoReturnDTOIPage;
     }
 

@@ -30,10 +30,18 @@ public class ChannelController extends BaseController {
     }
 
 
+    @PostMapping("/updateChannel")
+    @ApiOperation(value = "更新渠道")
+    public Result updateChannel(@RequestParam String id, String channelName) {
+        channelService.updateChannel(id, channelName);
+        return Result.success("成功");
+    }
+
+
     @PostMapping("/getChannelList")
     @ApiOperation(value = "获取渠道列表")
-    public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-        IPage<Map<String, String>> channelList = channelService.getChannelList(pageNum, pageSize);
+    public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String channelName) {
+        IPage<Map<String, String>> channelList = channelService.getChannelList(pageNum, pageSize, channelName);
         return Result.success(channelList);
     }
 

@@ -37,11 +37,11 @@ public class LoanProductServiceImpl extends BaseService implements ILoanProductS
 
 
 	@Override
-	public IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize) {
+	public IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize, String title) {
 		Page page = new Page();
 		page.setCurrent(pageNum);
 		page.setSize(pageSize);
-		IPage<LoanProductReturnDTO> loanProductIPage = loanProductMapper.getLoanProductList(page);
+		IPage<LoanProductReturnDTO> loanProductIPage = loanProductMapper.getLoanProductList(page, title);
 		return loanProductIPage;
 	}
 

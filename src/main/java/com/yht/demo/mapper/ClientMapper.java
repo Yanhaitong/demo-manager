@@ -3,6 +3,7 @@ package com.yht.demo.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yht.demo.entity.model.Client;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,10 +20,10 @@ import java.util.Map;
 @Repository
 public interface ClientMapper extends BaseMapper<Client> {
 
-	List<String> getAllClients();
+    List<String> getAllClients();
 
 
-	IPage<Map<String, String>> getClientList(IPage page);
+    IPage<Map<String, String>> getClientList(@Param("page") IPage page, @Param("clientName") String clientName);
 
 
 }

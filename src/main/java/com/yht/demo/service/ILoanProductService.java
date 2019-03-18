@@ -13,7 +13,7 @@ public interface ILoanProductService {
 	void addProduct(LoanProduct loanProduct);
 
 
-	IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize);
+	IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize, String title);
 
 
 	Result loanProductConfigParameter(LoanProductInfo loanProductInfo);

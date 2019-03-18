@@ -29,11 +29,18 @@ public class ClientController extends BaseController {
 		return Result.success("成功");
 	}
 
+	@PostMapping("/updateClient")
+	@ApiOperation(value = "更新客户端")
+	public Result updateClient(@RequestParam String id, String clientName) {
+		clientService.updateClient(id, clientName);
+		return Result.success("成功");
+	}
+
 
 	@PostMapping("/getClientList")
 	@ApiOperation(value = "获取客户端列表")
-	public Result getClientList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-		IPage<Map<String, String>> clientList = clientService.getClientList(pageNum, pageSize);
+	public Result getClientList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String clientName) {
+		IPage<Map<String, String>> clientList = clientService.getClientList(pageNum, pageSize, clientName);
 		return Result.success(clientList);
 	}
 

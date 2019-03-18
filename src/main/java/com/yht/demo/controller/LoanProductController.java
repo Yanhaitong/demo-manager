@@ -42,16 +42,16 @@ public class LoanProductController extends BaseController {
 
 	@PostMapping("/getLoanProductInfoList")
 	@ApiOperation(value = "获取产品信息列表")
-	public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-		IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoService.getLoanProductInfoList(pageNum, pageSize);
+	public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String title) {
+		IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoService.getLoanProductInfoList(pageNum, pageSize, title);
 		return Result.success(loanProductInfoReturnDTOIPage);
 	}
 
 
 	@PostMapping("/getLoanProductList")
 	@ApiOperation(value = "获取产品列表")
-	public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
-		IPage<LoanProductReturnDTO> loanProductIPage = loanProductService.getLoanProductList(pageNum, pageSize);
+	public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String title) {
+		IPage<LoanProductReturnDTO> loanProductIPage = loanProductService.getLoanProductList(pageNum, pageSize, title);
 		return Result.success(loanProductIPage);
 	}
 
