@@ -16,7 +16,7 @@
     <select id="getClientList" resultType="java.util.Map">
         SELECT
             id_ as id,
-            name_ as name,
+            name_ as clientName,
             CASE WHEN type_ = 0 THEN 'APP' ELSE 'H5' END as type,
             DATE_FORMAT(create_time,'%Y-%m-%d') as createTime
 
@@ -24,13 +24,16 @@
             client_
         WHERE
             del_flag = 0
+            <if test="clientName != null and clientName != 'undefined'">
+                and name_ like CONCAT('%','${clientName}','%')
+            </if>
             order by create_time desc
     </select>
 
     <select id="getAllClients" resultType="java.util.Map">
         SELECT
             id_ as id,
-            name_ as name
+            name_ as clientName
         FROM
             client_
         WHERE

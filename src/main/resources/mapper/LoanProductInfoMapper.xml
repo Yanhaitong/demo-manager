@@ -33,6 +33,10 @@
             loan_product_info
         WHERE
             del_flag = 0
+        <if test="title != null and title != 'undefined'">
+            and title_ like CONCAT('%','${title}','%')
+        </if>
+        order by create_time desc
     </select>
 
     <update id="hiddenOrShowProduct" parameterType="java.lang.String">

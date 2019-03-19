@@ -1,10 +1,12 @@
 package com.yht.demo.entity.dto;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
 
 /**
  * 产品广告信息的返回值
  */
+@Data
 public class LoanProductAdvertisingReturnDTO {
 
     /**
@@ -20,29 +22,4 @@ public class LoanProductAdvertisingReturnDTO {
      */
     @TableField("cover_")
     private String cover;
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getProductUrl() {
-        return productUrl;
-    }
-
-    public void setProductUrl(String productUrl) {
-        this.productUrl = productUrl;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
 }

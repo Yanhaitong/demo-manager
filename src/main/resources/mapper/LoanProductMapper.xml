@@ -53,6 +53,9 @@
         LEFT JOIN loan_product_classify lpc ON lpc.id_ = lp.classify_id and lpc.del_flag = 0
         WHERE
             lp.del_flag = 0
+        <if test="title != null and title != 'undefined'">
+            and lpi.title_ like CONCAT('%','${title}','%')
+        </if>
         ORDER BY lp.create_time
     </select>
 
