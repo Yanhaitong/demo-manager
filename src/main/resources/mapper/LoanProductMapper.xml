@@ -56,7 +56,7 @@
         <if test="title != null and title != 'undefined'">
             and lpi.title_ like CONCAT('%','${title}','%')
         </if>
-        ORDER BY lp.create_time
+        ORDER BY lp.create_time desc
     </select>
 
 </mapper>

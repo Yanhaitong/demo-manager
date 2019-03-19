@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yht.demo.common.BaseController;
 import com.yht.demo.common.Result;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
+import com.yht.demo.entity.dto.LoanProductReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductReturnDTO;
 import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.entity.model.LoanProductInfo;
@@ -34,8 +35,8 @@ public class LoanProductController extends BaseController {
 
 	@PostMapping("/addLoanProduct")
 	@ApiOperation(value = "添加产品配置")
-	public Result addLoanProduct(@ModelAttribute LoanProduct loanProduct) {
-		loanProductService.addProduct(loanProduct);
+	public Result addLoanProduct(@ModelAttribute LoanProductReceiveDTO loanProductReceiveDTO) {
+		loanProductService.addProduct(loanProductReceiveDTO);
 		return Result.success("成功");
 	}
 
