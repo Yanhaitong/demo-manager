@@ -10,10 +10,10 @@ import java.util.Date;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-04
  */
 @TableName("sms_config")
@@ -96,11 +96,11 @@ public class SystemConfig extends Model<SystemConfig> {
     @Override
     public String toString() {
         return "SystemConfig{" +
-        ", id=" + id +
-        ", key=" + key +
-        ", value=" + value +
-        ", createTime=" + createTime +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", key=" + key +
+                ", value=" + value +
+                ", createTime=" + createTime +
+                ", delFlag=" + delFlag +
+                "}";
     }
 }

@@ -29,15 +29,15 @@ public class LoanProductReceiveDTO {
     /**
      * 是否推荐
      */
-    private String isRecommend;
+    private String recommend;
     /**
      * 是否精选
      */
-    private String isCarefullySelect;
+    private String carefullySelect;
     /**
      * 是否最新
      */
-    private String isLatestProduct;
+    private String latestProduct;
 
 
 }

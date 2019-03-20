@@ -39,10 +39,11 @@ public class LoanProductServiceImpl extends BaseService implements ILoanProductS
 		List<String> channelNames = loanProductReceiveDTO.getChannelNames();
 
 		LoanProduct loanProduct = new LoanProduct();
+		loanProduct.setProductInfoId(Integer.valueOf(loanProductReceiveDTO.getProductInfoId()));
 		loanProduct.setClassifyId(Integer.valueOf(loanProductReceiveDTO.getClassifyId()));
-		loanProduct.setIsRecommend(Integer.valueOf(loanProductReceiveDTO.getIsRecommend()));
-		loanProduct.setIsCarefullySelect(Integer.valueOf(loanProductReceiveDTO.getIsCarefullySelect()));
-		loanProduct.setIsLatestProduct(Integer.valueOf(loanProductReceiveDTO.getIsLatestProduct()));
+		loanProduct.setIsRecommend(Integer.valueOf(loanProductReceiveDTO.getRecommend()));
+		loanProduct.setIsCarefullySelect(Integer.valueOf(loanProductReceiveDTO.getCarefullySelect()));
+		loanProduct.setIsLatestProduct(Integer.valueOf(loanProductReceiveDTO.getLatestProduct()));
 		loanProduct.setCreateTime(new Date());
 		for (String clientName: clientNames) {
 			for (String channelName: channelNames) {

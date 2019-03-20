@@ -3,6 +3,7 @@ package com.yht.demo.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yht.demo.common.BaseController;
 import com.yht.demo.common.Result;
+import com.yht.demo.entity.dto.LoanProductInfoReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
 import com.yht.demo.entity.dto.LoanProductReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductReturnDTO;
@@ -27,15 +28,15 @@ public class LoanProductController extends BaseController {
 
 	@PostMapping("/addLoanProductInfo")
 	@ApiOperation(value = "新增产品信息")
-	public Result addLoanProduct(@ModelAttribute LoanProductInfo loanProductInfo) {
-		loanProductInfoService.addLoanProductInfo(loanProductInfo);
+	public Result addLoanProduct(@RequestBody LoanProductInfoReceiveDTO loanProductInfoReceiveDTO) {
+		loanProductInfoService.addLoanProductInfo(loanProductInfoReceiveDTO);
 		return Result.success("成功");
 	}
 
 
 	@PostMapping("/addLoanProduct")
 	@ApiOperation(value = "添加产品配置")
-	public Result addLoanProduct(@ModelAttribute LoanProductReceiveDTO loanProductReceiveDTO) {
+	public Result addLoanProduct(@RequestBody LoanProductReceiveDTO loanProductReceiveDTO) {
 		loanProductService.addProduct(loanProductReceiveDTO);
 		return Result.success("成功");
 	}
@@ -43,7 +44,7 @@ public class LoanProductController extends BaseController {
 
 	@PostMapping("/getLoanProductInfoList")
 	@ApiOperation(value = "获取产品信息列表")
-	public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String title) {
+	public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
 		IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoService.getLoanProductInfoList(pageNum, pageSize, title);
 		return Result.success(loanProductInfoReturnDTOIPage);
 	}
@@ -51,7 +52,7 @@ public class LoanProductController extends BaseController {
 
 	@PostMapping("/getLoanProductList")
 	@ApiOperation(value = "获取产品列表")
-	public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String title) {
+	public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
 		IPage<LoanProductReturnDTO> loanProductIPage = loanProductService.getLoanProductList(pageNum, pageSize, title);
 		return Result.success(loanProductIPage);
 	}

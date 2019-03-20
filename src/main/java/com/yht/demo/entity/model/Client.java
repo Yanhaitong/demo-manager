@@ -14,7 +14,7 @@ import java.util.Date;
  * 客户端表
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-02
  */
 @TableName("client_")
@@ -110,12 +110,12 @@ public class Client extends Model<Client> {
     @Override
     public String toString() {
         return "Client{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", type=" + type +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", type=" + type +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", delFlag=" + delFlag +
+                "}";
     }
 }

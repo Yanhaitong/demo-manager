@@ -1,12 +1,15 @@
 package com.yht.demo.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import com.yht.demo.common.Constant;
 import com.yht.demo.common.Result;
+import com.yht.demo.entity.dto.LoanProductInfoReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
+import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.entity.model.LoanProductInfo;
 import com.yht.demo.mapper.LoanProductInfoMapper;
 import com.yht.demo.service.ILoanProductInfoService;
@@ -15,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,7 +27,8 @@ public class LoanProductInfoServiceImpl implements ILoanProductInfoService {
     private LoanProductInfoMapper loanProductInfoMapper;
 
     @Override
-    public void addLoanProductInfo(LoanProductInfo loanProductInfo) {
+    public void addLoanProductInfo(LoanProductInfoReceiveDTO loanProductInfoReceiveDTO) {
+        LoanProductInfo loanProductInfo = JSON.parseObject(JSON.toJSONString(loanProductInfoReceiveDTO), LoanProductInfo.class);
         loanProductInfo.setCreateTime(new Date());
         loanProductInfoMapper.insert(loanProductInfo);
     }
