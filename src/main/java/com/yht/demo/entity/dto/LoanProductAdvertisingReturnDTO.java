@@ -9,17 +9,16 @@ import lombok.Data;
 @Data
 public class LoanProductAdvertisingReturnDTO {
 
-    /**
-     * 产品id
-     */
-    private String productId;
-    /**
-     * 产品外链url
-     */
-    private String productUrl;
-    /**
-     * 封面图url
-     */
-    @TableField("cover_")
-    private String cover;
+	/**
+	 * 产品id
+	 */
+	private String productId;
+	/**
+	 * 产品外链url
+	 */
+	private String productUrl;
+	/**
+	 * 封面图url
+	 */
+	private String cover;
 }
