@@ -21,64 +21,64 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class LoanProductController extends BaseController {
 
-	@Autowired
-	private ILoanProductInfoService loanProductInfoService;
-	@Autowired
-	private ILoanProductService loanProductService;
+    @Autowired
+    private ILoanProductInfoService loanProductInfoService;
+    @Autowired
+    private ILoanProductService loanProductService;
 
-	@PostMapping("/addLoanProductInfo")
-	@ApiOperation(value = "新增产品信息")
-	public Result addLoanProduct(@RequestBody LoanProductInfoReceiveDTO loanProductInfoReceiveDTO) {
-		loanProductInfoService.addLoanProductInfo(loanProductInfoReceiveDTO);
-		return Result.success("成功");
-	}
-
-
-	@PostMapping("/addLoanProduct")
-	@ApiOperation(value = "添加产品配置")
-	public Result addLoanProduct(@RequestBody LoanProductReceiveDTO loanProductReceiveDTO) {
-		loanProductService.addProduct(loanProductReceiveDTO);
-		return Result.success("成功");
-	}
+    @PostMapping("/addLoanProductInfo")
+    @ApiOperation(value = "新增产品信息")
+    public Result addLoanProduct(@RequestBody LoanProductInfoReceiveDTO loanProductInfoReceiveDTO) {
+        loanProductInfoService.addLoanProductInfo(loanProductInfoReceiveDTO);
+        return Result.success("成功");
+    }
 
 
-	@PostMapping("/getLoanProductInfoList")
-	@ApiOperation(value = "获取产品信息列表")
-	public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
-		IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoService.getLoanProductInfoList(pageNum, pageSize, title);
-		return Result.success(loanProductInfoReturnDTOIPage);
-	}
+    @PostMapping("/addLoanProduct")
+    @ApiOperation(value = "添加产品配置")
+    public Result addLoanProduct(@RequestBody LoanProductReceiveDTO loanProductReceiveDTO) {
+        loanProductService.addProduct(loanProductReceiveDTO);
+        return Result.success("成功");
+    }
 
 
-	@PostMapping("/getLoanProductList")
-	@ApiOperation(value = "获取产品列表")
-	public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
-		IPage<LoanProductReturnDTO> loanProductIPage = loanProductService.getLoanProductList(pageNum, pageSize, title);
-		return Result.success(loanProductIPage);
-	}
+    @PostMapping("/getLoanProductInfoList")
+    @ApiOperation(value = "获取产品信息列表")
+    public Result getLoanProductInfoList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
+        IPage<LoanProductInfoReturnDTO> loanProductInfoReturnDTOIPage = loanProductInfoService.getLoanProductInfoList(pageNum, pageSize, title);
+        return Result.success(loanProductInfoReturnDTOIPage);
+    }
 
 
-	@PostMapping("/hiddenOrShowProduct")
-	@ApiOperation(value = "隐藏或显示产品信息")
-	public Result hiddenOrShowProduct(@RequestParam String productId, @RequestParam String isHide) {
-		loanProductInfoService.hiddenOrShowProduct(productId, isHide);
-		return Result.success("成功");
-	}
+    @PostMapping("/getLoanProductList")
+    @ApiOperation(value = "获取产品列表")
+    public Result getLoanProductList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String title) {
+        IPage<LoanProductReturnDTO> loanProductIPage = loanProductService.getLoanProductList(pageNum, pageSize, title);
+        return Result.success(loanProductIPage);
+    }
 
 
-	@PostMapping("/loanProductConfigParameter")
-	@ApiOperation(value = "产品配置参数")
-	public Result loanProductConfigParameter(@ModelAttribute LoanProductInfo loanProductInfo) {
-		return loanProductService.loanProductConfigParameter(loanProductInfo);
-	}
+    @PostMapping("/hiddenOrShowProduct")
+    @ApiOperation(value = "隐藏或显示产品信息")
+    public Result hiddenOrShowProduct(@RequestParam String productId, @RequestParam String isHide) {
+        loanProductInfoService.hiddenOrShowProduct(productId, isHide);
+        return Result.success("成功");
+    }
 
 
-	@PostMapping("/updateLoanProduct")
-	@ApiOperation(value = "更新产品")
-	public Result updateLoanProduct(@ModelAttribute LoanProductInfo loanProductInfo) {
-		loanProductInfoService.updateLoanProduct(loanProductInfo);
-		return Result.success("成功");
-	}
+    @PostMapping("/loanProductConfigParameter")
+    @ApiOperation(value = "产品配置参数")
+    public Result loanProductConfigParameter(@ModelAttribute LoanProductInfo loanProductInfo) {
+        return loanProductService.loanProductConfigParameter(loanProductInfo);
+    }
+
+
+    @PostMapping("/updateLoanProduct")
+    @ApiOperation(value = "更新产品")
+    public Result updateLoanProduct(@ModelAttribute LoanProductInfo loanProductInfo) {
+        loanProductInfoService.updateLoanProduct(loanProductInfo);
+        return Result.success("成功");
+    }
 
 
 }

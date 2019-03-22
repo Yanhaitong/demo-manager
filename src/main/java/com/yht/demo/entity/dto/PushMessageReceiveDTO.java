@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.util.List;
 
-@ApiModel(value="推送参数")
+@ApiModel(value = "推送参数")
 @Data
 public class PushMessageReceiveDTO {
 
