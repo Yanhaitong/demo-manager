@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -48,6 +49,11 @@ public class ClientServiceImpl implements IClientService {
 			client.setName(clientName);
 		}
 		clientMapper.updateById(client);
+	}
+
+	@Override
+	public List<String> getAllClients() {
+		return clientMapper.getAllClients();
 	}
 
 

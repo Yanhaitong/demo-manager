@@ -35,5 +35,4 @@ public class UvStatisticsController extends BaseController {
         return result;
     }
 
-
 }

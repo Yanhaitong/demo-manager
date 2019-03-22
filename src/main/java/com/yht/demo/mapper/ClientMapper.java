@@ -22,8 +22,7 @@ public interface ClientMapper extends BaseMapper<Client> {
 
     List<String> getAllClients();
 
-
     IPage<Map<String, String>> getClientList(@Param("page") IPage page, @Param("clientName") String clientName);
 
-
+    List<String> getClientAllList();
 }

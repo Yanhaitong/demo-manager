@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @Api("客户端管理")
@@ -19,31 +20,35 @@ import java.util.Map;
 @RestController
 public class ClientController extends BaseController {
 
-	@Autowired
-	private IClientService clientService;
+    @Autowired
+    private IClientService clientService;
 
-	@PostMapping("/addClient")
-	@ApiOperation(value = "新增客户端")
-	public Result addClient(@RequestParam String clientName, @RequestParam String type) {
-		clientService.addClient(clientName, type);
-		return Result.success("成功");
-	}
+    @PostMapping("/addClient")
+    @ApiOperation(value = "新增客户端")
+    public Result addClient(@RequestParam String clientName, @RequestParam String type) {
+        clientService.addClient(clientName, type);
+        return Result.success("成功");
+    }
 
+    @PostMapping("/getClientList")
+    @ApiOperation(value = "获取客户端列表")
+    public Result getClientList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String clientName) {
+        IPage<Map<String, String>> clientList = clientService.getClientList(pageNum, pageSize, clientName);
+        return Result.success(clientList);
+    }
 
-	@PostMapping("/getClientList")
-	@ApiOperation(value = "获取客户端列表")
-	public Result getClientList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String clientName) {
-		IPage<Map<String, String>> clientList = clientService.getClientList(pageNum, pageSize, clientName);
-		return Result.success(clientList);
-	}
+    @PostMapping("/updateClient")
+    @ApiOperation(value = "更新客户端")
+    public Result updateClient(@RequestParam String id, String clientName) {
+        clientService.updateClient(id, clientName);
+        return Result.success("成功");
+    }
 
-
-	@PostMapping("/updateClient")
-	@ApiOperation(value = "更新客户端")
-	public Result updateClient(@RequestParam String id, String clientName) {
-		clientService.updateClient(id, clientName);
-		return Result.success("成功");
-	}
-
+    @PostMapping("/getAllClients")
+    @ApiOperation(value = "获取客户端列表（条件查询使用）")
+    public Result getAllClients() {
+        List<String> clients = clientService.getAllClients();
+        return Result.success(clients);
+    }
 
 }
