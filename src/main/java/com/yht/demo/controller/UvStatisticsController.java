@@ -2,7 +2,6 @@ package com.yht.demo.controller;
 
 import com.yht.demo.common.BaseController;
 import com.yht.demo.common.Result;
-import com.yht.demo.entity.dto.PushMessageReceiveDTO;
 import com.yht.demo.entity.dto.UvStatisticsReceiveDTO;
 import com.yht.demo.service.IUvStatisticsService;
 import io.swagger.annotations.Api;
@@ -27,5 +26,14 @@ public class UvStatisticsController extends BaseController {
         Result result = uvStatisticsService.getAPPUVInfo(uvStatisticsReceiveDTO);
         return result;
     }
+
+
+    @PostMapping("/getLoginRegisterInfo")
+    @ApiOperation(value = "获取登录注册统计数据")
+    public Result getLoginRegisterInfo(UvStatisticsReceiveDTO uvStatisticsReceiveDTO) {
+        Result result = uvStatisticsService.getLoginRegisterInfo(uvStatisticsReceiveDTO);
+        return result;
+    }
+
 
 }

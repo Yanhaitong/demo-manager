@@ -37,7 +37,7 @@
 		group by date
     </select>
 
-    <select id="getUserDetails" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="getLoginRegisterInfo" resultType="java.util.Map" parameterType="com.yht.demo.entity.dto.UvStatisticsReceiveDTO">
         SELECT
             *
         FROM

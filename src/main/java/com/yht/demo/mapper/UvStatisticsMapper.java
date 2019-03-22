@@ -7,6 +7,8 @@ import com.yht.demo.entity.dto.UvStatisticsReceiveDTO;
 import com.yht.demo.entity.model.UvStatistics;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 /**
  * <p>
  * UV统计表 Mapper 接口
@@ -17,5 +19,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UvStatisticsMapper extends BaseMapper<UvStatistics> {
     
-    void getUVClickCount(UvStatisticsReceiveDTO uvStatisticsReceiveDTO);
+    IPage<Map> getUVClickCount(@Param("page") Page page, @Param("uvStatisticsReceiveDTO") UvStatisticsReceiveDTO uvStatisticsReceiveDTO);
 }

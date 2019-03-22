@@ -9,4 +9,6 @@ public interface IUvStatisticsService {
 
 
     Result getAPPUVInfo(UvStatisticsReceiveDTO uvStatisticsReceiveDTO);
+
+    Result getLoginRegisterInfo(UvStatisticsReceiveDTO uvStatisticsReceiveDTO);
 }
