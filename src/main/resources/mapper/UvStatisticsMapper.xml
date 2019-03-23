@@ -19,24 +19,24 @@
 
     <select id="getUVClickCount" resultType="java.util.Map" parameterType="com.yht.demo.entity.dto.UvStatisticsReceiveDTO">
         SELECT
-        DATE_FORMAT(create_time,'%Y-%m-%d') as dataTime,
-        title_ as productName,
-        count(id_) as clickUVCount
+          DATE_FORMAT(create_time,'%Y-%m-%d') as dataTime,
+          title_ as productName,
+          count(id_) as clickUVCount
         FROM
         uv_statistics
         WHERE
         del_flag = 0
-        <if test="uvStatisticsReceiveDTO.startTime != null">
-            and create_time &lt;= ${uvStatisticsReceiveDTO.startTime}
+        <if test="uvStatisticsReceiveDTO.startTime != null and uvStatisticsReceiveDTO.startTime != ''">
+            and create_time &gt;= #{uvStatisticsReceiveDTO.startTime}
         </if>
-        <if test="uvStatisticsReceiveDTO.endTime != null">
-            and create_time &gt;= ${uvStatisticsReceiveDTO.endTime}
+        <if test="uvStatisticsReceiveDTO.endTime != null and uvStatisticsReceiveDTO.endTime != ''">
+            and create_time &lt;= #{uvStatisticsReceiveDTO.endTime}
         </if>
-        <if test="uvStatisticsReceiveDTO.clientName != null">
-            and client_name = ${uvStatisticsReceiveDTO.clientName}
+        <if test="uvStatisticsReceiveDTO.clientName != null and uvStatisticsReceiveDTO.clientName != ''">
+            and client_name = #{uvStatisticsReceiveDTO.clientName}
         </if>
-        <if test="uvStatisticsReceiveDTO.channelName != null">
-            and channel_name = ${uvStatisticsReceiveDTO.channelName}
+        <if test="uvStatisticsReceiveDTO.channelName != null and uvStatisticsReceiveDTO.channelName != ''">
+            and channel_name = #{uvStatisticsReceiveDTO.channelName}
         </if>
         group by DATE_FORMAT(create_time,'%Y-%m-%d'), product_info_id
     </select>
