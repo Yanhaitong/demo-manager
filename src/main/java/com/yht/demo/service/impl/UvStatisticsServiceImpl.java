@@ -31,20 +31,7 @@ public class UvStatisticsServiceImpl extends BaseService implements IUvStatistic
         Page page = new Page();
         page.setSize(uvStatisticsReceiveDTO.getPageSize());
         page.setCurrent(uvStatisticsReceiveDTO.getPageNum());
-        if (!StringUtils.isEmpty(uvStatisticsReceiveDTO.getEndTime())){
-            try {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Date sDate = sdf.parse(uvStatisticsReceiveDTO.getEndTime());
-                Calendar c = Calendar.getInstance();
-                c.setTime(sDate);
-                c.add(Calendar.DAY_OF_MONTH, 1);
-                sDate = c.getTime();
-                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-                uvStatisticsReceiveDTO.setEndTime(sdf1.format(sDate));
-            }catch (Exception e){
-                log.error("日期加一天========" + e.getMessage());
-            }
-        }
+        uvStatisticsReceiveDTO.setEndTime(updateDateAdd1(uvStatisticsReceiveDTO.getEndTime()));
         //uv点击数
         IPage<Map> list = uvStatisticsMapper.getUVClickCount(page, uvStatisticsReceiveDTO);
         return Result.success(list);
@@ -55,9 +42,28 @@ public class UvStatisticsServiceImpl extends BaseService implements IUvStatistic
         Page page = new Page();
         page.setSize(uvStatisticsReceiveDTO.getPageSize());
         page.setCurrent(uvStatisticsReceiveDTO.getPageNum());
+        uvStatisticsReceiveDTO.setEndTime(updateDateAdd1(uvStatisticsReceiveDTO.getEndTime()));
         //用户登录注册统计
         IPage<Map> list = userMapper.getLoginRegisterInfo(page, uvStatisticsReceiveDTO);
 
         return Result.success(list);
+    }
+
+    private String updateDateAdd1(String dayTime){
+        if (!StringUtils.isEmpty(dayTime)){
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date sDate = sdf.parse(dayTime);
+                Calendar c = Calendar.getInstance();
+                c.setTime(sDate);
+                c.add(Calendar.DAY_OF_MONTH, 1);
+                sDate = c.getTime();
+                String sdf1 = new SimpleDateFormat("yyyy-MM-dd").format(sDate);
+                return sdf1;
+            }catch (Exception e){
+                log.error("日期加一天========" + e.getMessage());
+            }
+        }
+        return dayTime;
     }
 }

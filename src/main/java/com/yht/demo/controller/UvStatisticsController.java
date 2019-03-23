@@ -27,6 +27,12 @@ public class UvStatisticsController extends BaseController {
         return result;
     }
 
+    @PostMapping("/getH5UVInfo")
+    @ApiOperation(value = "获取H5UV统计数据")
+    public Result getH5UVInfo(UvStatisticsReceiveDTO uvStatisticsReceiveDTO) {
+        Result result = uvStatisticsService.getAPPUVInfo(uvStatisticsReceiveDTO);
+        return result;
+    }
 
     @PostMapping("/getLoginRegisterInfo")
     @ApiOperation(value = "获取登录注册统计数据")

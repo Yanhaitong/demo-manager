@@ -30,7 +30,7 @@
             and create_time &gt;= #{uvStatisticsReceiveDTO.startTime}
         </if>
         <if test="uvStatisticsReceiveDTO.endTime != null and uvStatisticsReceiveDTO.endTime != ''">
-            and create_time &lt;= #{uvStatisticsReceiveDTO.endTime}
+            and create_time &lt; #{uvStatisticsReceiveDTO.endTime}
         </if>
         <if test="uvStatisticsReceiveDTO.clientName != null and uvStatisticsReceiveDTO.clientName != ''">
             and client_name = #{uvStatisticsReceiveDTO.clientName}

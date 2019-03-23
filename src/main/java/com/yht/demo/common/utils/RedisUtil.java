@@ -16,13 +16,16 @@ public class RedisUtil {
     private StringRedisTemplate stringRedisTemplate;
     //通过该标签以及该方法实现给static属性注入  
     public static RedisUtil redisUtil;
+
     @PostConstruct
     public void init() {
         redisUtil = this;
         redisUtil.stringRedisTemplate = this.stringRedisTemplate;
     }
+
     /**
      * 保存token
+     *
      * @param mobileNo
      * @param token
      */
@@ -37,6 +40,7 @@ public class RedisUtil {
 
     /**
      * 删除token
+     *
      * @param token
      */
     public static void deleteToken(String token) {
