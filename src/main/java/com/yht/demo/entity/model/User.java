@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * 用户表
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-02
  */
 @TableName("user_")
@@ -200,17 +201,17 @@ public class User extends Model<User> {
     @Override
     public String toString() {
         return "User{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", account=" + account +
-        ", password=" + password +
-        ", mobileNo=" + mobileNo +
-        ", clientName=" + clientName +
-        ", channelName=" + channelName +
-        ", version=" + version +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", account=" + account +
+                ", password=" + password +
+                ", mobileNo=" + mobileNo +
+                ", clientName=" + clientName +
+                ", channelName=" + channelName +
+                ", version=" + version +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", delFlag=" + delFlag +
+                "}";
     }
 }

@@ -14,7 +14,7 @@ import java.util.Date;
  * 产品配置表
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-08
  */
 @TableName("loan_product")
@@ -175,17 +175,17 @@ public class LoanProduct extends Model<LoanProduct> {
     @Override
     public String toString() {
         return "LoanProduct{" +
-        ", id=" + id +
-        ", productInfoId=" + productInfoId +
-        ", classifyId=" + classifyId +
-        ", clientName=" + clientName +
-        ", channelName=" + channelName +
-        ", isRecommend=" + isRecommend +
-        ", isCarefullySelect=" + isCarefullySelect +
-        ", isLatestProduct=" + isLatestProduct +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", productInfoId=" + productInfoId +
+                ", classifyId=" + classifyId +
+                ", clientName=" + clientName +
+                ", channelName=" + channelName +
+                ", isRecommend=" + isRecommend +
+                ", isCarefullySelect=" + isCarefullySelect +
+                ", isLatestProduct=" + isLatestProduct +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", delFlag=" + delFlag +
+                "}";
     }
 }

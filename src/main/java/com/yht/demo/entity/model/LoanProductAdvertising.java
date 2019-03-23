@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * 产品广告配置表
  * </p>
  *
- * @author 
+ * @author
  * @since 2019-03-08
  */
 @TableName("loan_product_advertising")
@@ -31,11 +32,6 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
      */
     @TableField("product_info_id")
     private Integer productInfoId;
-    /**
-     * 贷款产品url
-     */
-    @TableField("icon_")
-    private String icon;
     /**
      * 封面图url
      */
@@ -87,14 +83,6 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
 
     public void setProductInfoId(Integer productInfoId) {
         this.productInfoId = productInfoId;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 
     public String getCover() {
@@ -161,16 +149,15 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
     @Override
     public String toString() {
         return "LoanProductAdvertising{" +
-        ", id=" + id +
-        ", productInfoId=" + productInfoId +
-        ", icon=" + icon +
-        ", cover=" + cover +
-        ", type=" + type +
-        ", clientName=" + clientName +
-        ", channelName=" + channelName +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", productInfoId=" + productInfoId +
+                ", cover=" + cover +
+                ", type=" + type +
+                ", clientName=" + clientName +
+                ", channelName=" + channelName +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", delFlag=" + delFlag +
+                "}";
     }
 }
