@@ -13,17 +13,17 @@
 
     <select id="getChannelList" resultType="java.util.Map">
         SELECT
-            id_ as id,
-            name_ as channelName,
-            DATE_FORMAT(create_time,'%Y-%m-%d') as createTime
+        id_ as id,
+        name_ as channelName,
+        DATE_FORMAT(create_time,'%Y-%m-%d') as createTime
         FROM
-            channel_
+        channel_
         WHERE
-            del_flag = 0
-            <if test="channelName != null and channelName != 'undefined'">
-              and name_ like CONCAT('%','${channelName}','%')
-            </if>
-            order by create_time desc
+        del_flag = 0
+        <if test="channelName != null and channelName != 'undefined'">
+            and name_ like CONCAT('%','${channelName}','%')
+        </if>
+        order by create_time desc
     </select>
 
     <select id="getAllChannels" resultType="java.util.Map">

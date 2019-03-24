@@ -4,36 +4,15 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.SystemMessage">
-        <id column="id_" property="id" />
-        <result column="title_" property="title" />
-        <result column="content_" property="content" />
-        <result column="icon_" property="icon" />
-        <result column="product_id" property="productId" />
-        <result column="client_name" property="clientName" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="del_flag" property="delFlag" />
+        <id column="id_" property="id"/>
+        <result column="title_" property="title"/>
+        <result column="content_" property="content"/>
+        <result column="icon_" property="icon"/>
+        <result column="product_id" property="productId"/>
+        <result column="client_name" property="clientName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <resultMap id="messageResultMap" type="com.yht.demo.entity.dto.SysMessageReturnDTO">
-        <result column="title_" property="title" />
-        <result column="content_" property="content" />
-        <result column="icon_" property="icon" />
-        <result column="product_url" property="productUrl" />
-        <result column="create_time" property="createTime" />
-    </resultMap>
-
-    <select id="getSystemMessageList" resultMap="messageResultMap" parameterType="com.yht.demo.entity.dto.SysMessageReceiveDTO">
-        SELECT
-          title_,
-          content_,
-          icon_,
-          product_url,
-          create_time
-        FROM
-          system_message
-        WHERE
-          client_name = #{sysMessageReceiveDTO.clientName}
-          and del_flag = 0
-    </select>
 </mapper>

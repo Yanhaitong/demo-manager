@@ -1,12 +1,8 @@
 package com.yht.demo.service.impl;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.common.BaseService;
 import com.yht.demo.entity.dto.PushMessageReceiveDTO;
-import com.yht.demo.entity.dto.SysMessageReturnDTO;
-import com.yht.demo.entity.dto.SysMessageReceiveDTO;
 import com.yht.demo.entity.model.SystemMessage;
 import com.yht.demo.mapper.SystemConfigMapper;
 import com.yht.demo.mapper.SystemMessageMapper;
@@ -51,15 +47,6 @@ public class SystemMessageServiceImpl extends BaseService implements ISystemMess
         }catch (Exception e){
             log.info("pushSystemMessage=============" + e.getMessage());
         }
-    }
-
-    @Override
-    public IPage<SysMessageReturnDTO> getSystemMessageList(SysMessageReceiveDTO sysMessageReceiveDTO) {
-        Page page = new Page();
-        page.setCurrent(sysMessageReceiveDTO.getPageNum());
-        page.setSize(sysMessageReceiveDTO.getPageSize());
-        IPage<SysMessageReturnDTO> systemMessageDtoIPage = systemMessageMapper.getSystemMessageList(page, sysMessageReceiveDTO);
-        return systemMessageDtoIPage;
     }
 
 }

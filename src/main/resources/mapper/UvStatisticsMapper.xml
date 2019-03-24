@@ -17,11 +17,12 @@
         <result column="del_flag" property="delFlag"/>
     </resultMap>
 
-    <select id="getUVClickCount" resultType="java.util.Map" parameterType="com.yht.demo.entity.dto.UvStatisticsReceiveDTO">
+    <select id="getUVClickCount" resultType="java.util.Map"
+            parameterType="com.yht.demo.entity.dto.UvStatisticsReceiveDTO">
         SELECT
-          DATE_FORMAT(create_time,'%Y-%m-%d') as dataTime,
-          title_ as productName,
-          count(id_) as clickUVCount
+        DATE_FORMAT(create_time,'%Y-%m-%d') as dataTime,
+        title_ as productName,
+        count(id_) as clickUVCount
         FROM
         uv_statistics
         WHERE

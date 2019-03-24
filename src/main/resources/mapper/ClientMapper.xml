@@ -4,30 +4,29 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yht.demo.entity.model.Client">
-        <id column="id_" property="id" />
-        <result column="name_" property="name" />
-        <result column="type_" property="type" />
-        <result column="inuse_" property="inuse" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="del_flag" property="delFlag" />
+        <id column="id_" property="id"/>
+        <result column="name_" property="name"/>
+        <result column="type_" property="type"/>
+        <result column="inuse_" property="inuse"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
     </resultMap>
 
     <select id="getClientList" resultType="java.util.Map">
         SELECT
-            id_ as id,
-            name_ as clientName,
-            CASE WHEN type_ = 0 THEN 'APP' ELSE 'H5' END as type,
-            DATE_FORMAT(create_time,'%Y-%m-%d') as createTime
-
+        id_ as id,
+        name_ as clientName,
+        CASE WHEN type_ = 0 THEN 'APP' ELSE 'H5' END as type,
+        DATE_FORMAT(create_time,'%Y-%m-%d') as createTime
         FROM
-            client_
+        client_
         WHERE
-            del_flag = 0
-            <if test="clientName != null and clientName != 'undefined'">
-                and name_ like CONCAT('%','${clientName}','%')
-            </if>
-            order by create_time desc
+        del_flag = 0
+        <if test="clientName != null and clientName != 'undefined'">
+            and name_ like CONCAT('%','${clientName}','%')
+        </if>
+        order by create_time desc
     </select>
 
     <select id="getAllClients" resultType="java.util.Map">
