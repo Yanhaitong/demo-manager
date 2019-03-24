@@ -16,5 +16,4 @@ public class ClientResutnDTO {
 	 */
 	private String type;
 
-
 }

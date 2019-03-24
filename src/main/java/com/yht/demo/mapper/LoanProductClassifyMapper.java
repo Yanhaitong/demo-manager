@@ -18,7 +18,6 @@ import java.util.Map;
 @Repository
 public interface LoanProductClassifyMapper extends BaseMapper<LoanProductClassify> {
 
-	List<Map<String, String>> getAllClassifys();
-
+    List<Map<String, String>> getAllClassifys();
 
 }

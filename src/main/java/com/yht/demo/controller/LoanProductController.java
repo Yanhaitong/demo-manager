@@ -9,12 +9,16 @@ import com.yht.demo.entity.dto.LoanProductReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductReturnDTO;
 import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.entity.model.LoanProductInfo;
+import com.yht.demo.service.ILoanProductClassifyService;
 import com.yht.demo.service.ILoanProductInfoService;
 import com.yht.demo.service.ILoanProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @Api("产品配置管理")
 @RequestMapping("/loanProduct")
@@ -25,6 +29,9 @@ public class LoanProductController extends BaseController {
     private ILoanProductInfoService loanProductInfoService;
     @Autowired
     private ILoanProductService loanProductService;
+    @Autowired
+    private ILoanProductClassifyService loanProductClassifyService;
+
 
     @PostMapping("/addLoanProductInfo")
     @ApiOperation(value = "新增产品信息")
@@ -72,12 +79,25 @@ public class LoanProductController extends BaseController {
         return loanProductService.loanProductConfigParameter(loanProductInfo);
     }
 
+    @PostMapping("/getAllProducts")
+    @ApiOperation(value = "获取产品信息列表（条件查询使用）")
+    public Result getAllProducts() {
+        return loanProductService.getAllProducts();
+    }
+
 
     @PostMapping("/updateLoanProduct")
     @ApiOperation(value = "更新产品")
     public Result updateLoanProduct(@ModelAttribute LoanProductInfo loanProductInfo) {
         loanProductInfoService.updateLoanProduct(loanProductInfo);
         return Result.success("成功");
+    }
+
+    @PostMapping("/getAllClassifys")
+    @ApiOperation(value = "获取产品分类列表（条件查询使用）")
+    public Result getAllClassifys() {
+        List<Map<String, String>> getAllClassifys = loanProductClassifyService.getAllClassifys();
+        return Result.success(getAllClassifys);
     }
 
 

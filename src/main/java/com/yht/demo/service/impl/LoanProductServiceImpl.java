@@ -79,5 +79,11 @@ public class LoanProductServiceImpl extends BaseService implements ILoanProductS
 		return Result.success(map);
 	}
 
+	@Override
+	public Result getAllProducts() {
+		List<Map<String, String>> loanProductList = loanProductInfoMapper.getAllProducts();
+		return Result.success(loanProductList);
+	}
+
 
 }

@@ -11,13 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface ILoanProductService {
 
-	void addProduct(LoanProductReceiveDTO loanProductReceiveDTO);
+    void addProduct(LoanProductReceiveDTO loanProductReceiveDTO);
 
 
-	IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize, String title);
+    IPage<LoanProductReturnDTO> getLoanProductList(Integer pageNum, Integer pageSize, String title);
 
 
-	Result loanProductConfigParameter(LoanProductInfo loanProductInfo);
+    Result loanProductConfigParameter(LoanProductInfo loanProductInfo);
 
 
+    Result getAllProducts();
 }
