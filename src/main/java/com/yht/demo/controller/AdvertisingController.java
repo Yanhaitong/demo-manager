@@ -10,10 +10,7 @@ import com.yht.demo.service.IAdvertisingService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -27,7 +24,7 @@ public class AdvertisingController extends BaseController {
 
     @PostMapping("/getAdvertisingList")
     @ApiOperation(value = "获取广告列表")
-    public Result getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO) {
+    public Result getAdvertisingList(@RequestBody AdvertisingReceiveDTO advertisingReceiveDTO) {
         IPage<Map<String, Object>> advertisingList = advertisingService.getAdvertisingList(advertisingReceiveDTO);
         return Result.success(advertisingList);
     }
@@ -48,7 +45,7 @@ public class AdvertisingController extends BaseController {
 
     @PostMapping("/deleteAdvertising")
     @ApiOperation(value = "删除产品广告")
-    public Result deleteAdvertisingById(String id) {
+    public Result deleteAdvertisingById(@RequestParam String id) {
         advertisingService.deleteAdvertisingById(id);
         return Result.success("成功");
     }

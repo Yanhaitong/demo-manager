@@ -32,7 +32,9 @@ public class ClientController extends BaseController {
 
     @PostMapping("/getClientList")
     @ApiOperation(value = "获取客户端列表")
-    public Result getClientList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String clientName) {
+    public Result getClientList(@RequestParam(value = "pageNum") Integer pageNum,
+                                @RequestParam(value = "pageSize") Integer pageSize,
+                                @RequestParam(value = "clientName") String clientName) {
         IPage<Map<String, String>> clientList = clientService.getClientList(pageNum, pageSize, clientName);
         return Result.success(clientList);
     }

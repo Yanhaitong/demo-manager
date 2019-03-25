@@ -7,10 +7,7 @@ import com.yht.demo.service.IChannelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -39,7 +36,7 @@ public class ChannelController extends BaseController {
 
     @PostMapping("/getChannelList")
     @ApiOperation(value = "获取渠道列表")
-    public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, String channelName) {
+    public Result getChannelList(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String channelName) {
         IPage<Map<String, String>> channelList = channelService.getChannelList(pageNum, pageSize, channelName);
         return Result.success(channelList);
     }
