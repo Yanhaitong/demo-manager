@@ -25,7 +25,7 @@ public class AdvertisingController extends BaseController {
     @PostMapping("/getAdvertisingList")
     @ApiOperation(value = "获取广告列表")
     public Result getAdvertisingList(@RequestBody AdvertisingReceiveDTO advertisingReceiveDTO) {
-        IPage<Map<String, Object>> advertisingList = advertisingService.getAdvertisingList(advertisingReceiveDTO);
+        IPage<Map<String, String>> advertisingList = advertisingService.getAdvertisingList(advertisingReceiveDTO);
         return Result.success(advertisingList);
     }
 

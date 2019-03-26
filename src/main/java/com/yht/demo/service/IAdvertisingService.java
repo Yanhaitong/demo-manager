@@ -11,7 +11,7 @@ import java.util.Map;
 @Transactional
 public interface IAdvertisingService {
 
-    IPage<Map<String, Object>> getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO);
+    IPage<Map<String, String>> getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO);
 
     void addAdvertising(AdvertisingAddDTO advertisingParameterDTO);
 

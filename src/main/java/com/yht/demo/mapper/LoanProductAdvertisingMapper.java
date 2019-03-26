@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public interface LoanProductAdvertisingMapper extends BaseMapper<LoanProductAdvertising> {
 
-    IPage<Map<String, Object>> getAdvertisingList(@Param("page") Page page, @Param("advertisingReceiveDTO")AdvertisingReceiveDTO advertisingReceiveDTO);
+    IPage<Map<String, String>> getAdvertisingList(@Param("page") Page page, @Param("advertisingReceiveDTO")AdvertisingReceiveDTO advertisingReceiveDTO);
 
     void deleteAdvertisingById(String id);
 }

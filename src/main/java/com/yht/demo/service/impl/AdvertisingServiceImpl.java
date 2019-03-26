@@ -20,11 +20,11 @@ public class AdvertisingServiceImpl implements IAdvertisingService {
     @Autowired
     private LoanProductAdvertisingMapper loanProductAdvertisingMapper;
     @Override
-    public IPage<Map<String, Object>> getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO) {
+    public IPage<Map<String, String>> getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO) {
         Page page = new Page();
         page.setSize(advertisingReceiveDTO.getPageSize());
         page.setCurrent(advertisingReceiveDTO.getPageNum());
-        IPage<Map<String, Object>> list = loanProductAdvertisingMapper.getAdvertisingList(page, advertisingReceiveDTO);
+        IPage<Map<String, String>> list = loanProductAdvertisingMapper.getAdvertisingList(page, advertisingReceiveDTO);
         return list;
     }
 
