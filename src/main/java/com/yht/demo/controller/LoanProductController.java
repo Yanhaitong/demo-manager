@@ -101,4 +101,12 @@ public class LoanProductController extends BaseController {
     }
 
 
+    @PostMapping("/getToken")
+    @ApiOperation(value = "获取产品分类列表（条件查询使用）")
+    public Result getToken(@RequestParam String bucket) {
+        Result result = loanProductInfoService.uploadCredentials(bucket);
+        return Result.success(result);
+    }
+
+
 }

@@ -22,7 +22,4 @@ public class AdvertisingAddDTO {
 	 */
 	private List<String> clientNames;
 
-
-
-
 }
