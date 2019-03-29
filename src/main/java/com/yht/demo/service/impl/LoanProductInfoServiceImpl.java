@@ -67,7 +67,7 @@ public class LoanProductInfoServiceImpl implements ILoanProductInfoService {
         String fileName = bucket + "_" + System.currentTimeMillis() + ".png";
 
         //上传到七牛云的token
-        String uploadToken = auth.uploadToken(bucket, fileName, 30, new StringMap());
+        String uploadToken = auth.uploadToken("app_package", fileName, 300, new StringMap());
         Map<String, Object> map = new HashMap<>();
         map.put("uploadToken", uploadToken);
         map.put("fileName", fileName);
