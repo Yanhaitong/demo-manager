@@ -9,7 +9,6 @@ import com.yht.demo.common.Constant;
 import com.yht.demo.common.Result;
 import com.yht.demo.entity.dto.LoanProductInfoReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductInfoReturnDTO;
-import com.yht.demo.entity.model.LoanProduct;
 import com.yht.demo.entity.model.LoanProductInfo;
 import com.yht.demo.mapper.LoanProductInfoMapper;
 import com.yht.demo.service.ILoanProductInfoService;
