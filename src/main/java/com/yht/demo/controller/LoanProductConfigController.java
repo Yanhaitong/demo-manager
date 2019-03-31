@@ -43,8 +43,8 @@ public class LoanProductConfigController extends BaseController {
 
     /*@PostMapping("/loanProductConfigParameter")
     @ApiOperation(value = "产品配置参数")
-    public Result loanProductConfigParameter(@RequestBody LoanProductInfo loanProductInfo) {
-        return loanProductService.loanProductConfigParameter(loanProductInfo);
+    public Result loanProductConfigParameter(@RequestBody LoanProduct loanProduct) {
+        return loanProductService.loanProductConfigParameter(loanProduct);
     }*/
 
 }
