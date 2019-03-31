@@ -44,8 +44,8 @@ public class LoanProductServiceImpl implements ILoanProductService {
         Page page = new Page();
         page.setCurrent(pageNum);
         page.setSize(pageSize);
-        IPage<LoanProductReturnDTO> loanProductInfoReturnDTOIPage = loanProductMapper.getLoanProductList(page, title);
-        return loanProductInfoReturnDTOIPage;
+        IPage<LoanProductReturnDTO> loanProductReturnDTOIPage = loanProductMapper.getLoanProductList(page, title);
+        return loanProductReturnDTOIPage;
     }
 
     @Override
