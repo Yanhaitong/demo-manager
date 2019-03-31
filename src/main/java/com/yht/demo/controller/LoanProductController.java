@@ -54,6 +54,13 @@ public class LoanProductController extends BaseController {
         return Result.success("成功");
     }
 
+    @PostMapping("/getUpLoadToken")
+    @ApiOperation(value = "获取上传token")
+    public Result getUpLoadToken(@RequestParam String bucketName) {
+        Result result = loanProductService.uploadCredentials(bucketName);
+        return Result.success(result);
+    }
+
     @PostMapping("/getAllProducts")
     @ApiOperation(value = "获取产品信息列表（条件查询使用）")
     public Result getAllProducts() {
@@ -65,13 +72,6 @@ public class LoanProductController extends BaseController {
     public Result getAllClassifys() {
         List<Map<String, String>> getAllClassifys = loanProductClassifyService.getAllClassifys();
         return Result.success(getAllClassifys);
-    }
-
-    @PostMapping("/getUpLoadToken")
-    @ApiOperation(value = "获取产品分类列表（条件查询使用）")
-    public Result getUpLoadToken(@RequestParam String bucketName) {
-        Result result = loanProductService.uploadCredentials(bucketName);
-        return Result.success(result);
     }
 
 }
