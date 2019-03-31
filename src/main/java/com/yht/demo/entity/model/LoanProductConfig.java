@@ -6,19 +6,19 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
- * 产品广告配置表
+ * 产品配置表
  * </p>
  *
  * @author
  * @since 2019-03-08
  */
-@TableName("loan_product_advertising")
-public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
+@TableName("loan_product")
+public class LoanProductConfig extends Model<LoanProductConfig> {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,20 +28,15 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
     @TableId(value = "id_", type = IdType.AUTO)
     private Integer id;
     /**
-     * 产品信息id
+     * 产品基本信息id
      */
-    @TableField("product_info_id")
-    private Integer productInfoId;
+    @TableField("product_id")
+    private Integer productId;
     /**
-     * 封面图url
+     * 产品分类id
      */
-    @TableField("cover_")
-    private String cover;
-    /**
-     * 广告位置（0:启动图， 1:首页弹框， 2:首页轮播图）
-     */
-    @TableField("location_")
-    private Integer location;
+    @TableField("classify_id")
+    private Integer classifyId;
     /**
      * 客户端名称
      */
@@ -52,6 +47,21 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
      */
     @TableField("channel_name")
     private String channelName;
+    /**
+     * 是否推荐（0:否 1:是）
+     */
+    @TableField("is_recommend")
+    private Integer isRecommend;
+    /**
+     * 是否精选（0:否 1:是）
+     */
+    @TableField("is_carefully_select")
+    private Integer isCarefullySelect;
+    /**
+     * 是否最新产品（0:否 1:是）
+     */
+    @TableField("is_latest_product")
+    private Integer isLatestProduct;
     /**
      * 创建时间
      */
@@ -77,28 +87,20 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
         this.id = id;
     }
 
-    public Integer getProductInfoId() {
-        return productInfoId;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProductInfoId(Integer productInfoId) {
-        this.productInfoId = productInfoId;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
-    public String getCover() {
-        return cover;
+    public Integer getClassifyId() {
+        return classifyId;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    public Integer getLocation() {
-        return location;
-    }
-
-    public void setLocation(Integer location) {
-        this.location = location;
+    public void setClassifyId(Integer classifyId) {
+        this.classifyId = classifyId;
     }
 
     public String getClientName() {
@@ -115,6 +117,30 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
 
     public void setChannelName(String channelName) {
         this.channelName = channelName;
+    }
+
+    public Integer getIsRecommend() {
+        return isRecommend;
+    }
+
+    public void setIsRecommend(Integer isRecommend) {
+        this.isRecommend = isRecommend;
+    }
+
+    public Integer getIsCarefullySelect() {
+        return isCarefullySelect;
+    }
+
+    public void setIsCarefullySelect(Integer isCarefullySelect) {
+        this.isCarefullySelect = isCarefullySelect;
+    }
+
+    public Integer getIsLatestProduct() {
+        return isLatestProduct;
+    }
+
+    public void setIsLatestProduct(Integer isLatestProduct) {
+        this.isLatestProduct = isLatestProduct;
     }
 
     public Date getCreateTime() {
@@ -148,13 +174,15 @@ public class LoanProductAdvertising extends Model<LoanProductAdvertising> {
 
     @Override
     public String toString() {
-        return "LoanProductAdvertising{" +
+        return "LoanProduct{" +
                 ", id=" + id +
-                ", productInfoId=" + productInfoId +
-                ", cover=" + cover +
-                ", location=" + location +
+                ", productId=" + productId +
+                ", classifyId=" + classifyId +
                 ", clientName=" + clientName +
                 ", channelName=" + channelName +
+                ", isRecommend=" + isRecommend +
+                ", isCarefullySelect=" + isCarefullySelect +
+                ", isLatestProduct=" + isLatestProduct +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", delFlag=" + delFlag +

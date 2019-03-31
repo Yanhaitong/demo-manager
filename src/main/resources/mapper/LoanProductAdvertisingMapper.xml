@@ -8,6 +8,7 @@
         <result column="client_name" property="clientName"/>
         <result column="title_" property="title"/>
         <result column="icon_" property="icon"/>
+        <result column="location_" property="location"/>
         <result column="background_url" property="backgroundUrl"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -19,8 +20,8 @@
         lpa.id_ AS id,
         lpi.name_ as productName,
         lpi.id_ as productInfoId,
-        lpa.type_ as type,
-        CASE lpa.type_ WHEN 0 THEN '启动图'
+        lpa.location_ as location,
+        CASE lpa.location_ WHEN 0 THEN '启动图'
         WHEN 1 THEN '首页弹框'
         WHEN 2 THEN '首页轮播图'
         END AS typeName,

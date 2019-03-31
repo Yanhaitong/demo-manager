@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 产品配置表
+ * 产品基础信息表
  * </p>
  *
  * @author
@@ -21,57 +21,101 @@ import java.util.Date;
 public class LoanProduct extends Model<LoanProduct> {
 
     private static final long serialVersionUID = 1L;
-
     /**
      * 主键
      */
     @TableId(value = "id_", type = IdType.AUTO)
     private Integer id;
     /**
-     * 产品基本信息id
+     * 申请条件
      */
-    @TableField("product_info_id")
-    private Integer productInfoId;
+    @TableField("apply_condition")
+    private String applyCondition;
     /**
-     * 产品分类id
+     * 申请人数
      */
-    @TableField("classify_id")
-    private Integer classifyId;
-    /**
-     * 客户端名称
-     */
-    @TableField("client_name")
-    private String clientName;
-    /**
-     * 渠道名称
-     */
-    @TableField("channel_name")
-    private String channelName;
-    /**
-     * 是否推荐（0:否 1:是）
-     */
-    @TableField("is_recommend")
-    private Integer isRecommend;
-    /**
-     * 是否精选（0:否 1:是）
-     */
-    @TableField("is_carefully_select")
-    private Integer isCarefullySelect;
-    /**
-     * 是否最新产品（0:否 1:是）
-     */
-    @TableField("is_latest_product")
-    private Integer isLatestProduct;
+    @TableField("apply_num")
+    private String applyNum;
     /**
      * 创建时间
      */
     @TableField("create_time")
     private Date createTime;
     /**
+     * 产品描述
+     */
+    @TableField("description_")
+    private String description;
+    /**
+     * 产品说明
+     */
+    @TableField("explain_label")
+    private String explainLabel;
+    /**
+     * 图标链接地址
+     */
+    @TableField("icon_url")
+    private String iconUrl;
+    /**
+     * 贷款利率
+     */
+    @TableField("interest_rate")
+    private String interestRate;
+    /**
+     * 贷款利率类型（0:日利率 1:月利率 2:年利率）
+     */
+    @TableField("interest_rate_type")
+    private Integer interestRateType;
+    /**
+     * 是否隐藏
+     */
+    @TableField("is_hide")
+    private Integer isHide;
+    /**
+     * 贷款金额范围
+     */
+    @TableField("loan_amount_scope")
+    private String loanAmountScope;
+    /**
+     * 贷款期限范围
+     */
+    @TableField("loan_time_scope")
+    private String loanTimeScope;
+    /**
+     * 产品名称
+     */
+    @TableField("name_")
+    private String name;
+    /**
+     * 所需资料
+     */
+    @TableField("need_datum")
+    private String needDatum;
+    /**
+     * 下款时间
+     */
+    @TableField("obtain_time")
+    private String obtainTime;
+    /**
+     * 产品排序
+     */
+    @TableField("sort_")
+    private Integer sort;
+    /**
+     * 产品标题
+     */
+    @TableField("title_")
+    private String title;
+    /**
      * 更新时间
      */
     @TableField("update_time")
     private Date updateTime;
+    /**
+     * 产品url
+     */
+    @TableField("url_")
+    private String url;
     /**
      * 删除标记（0:未删除 1:已删除）
      */
@@ -87,60 +131,20 @@ public class LoanProduct extends Model<LoanProduct> {
         this.id = id;
     }
 
-    public Integer getProductInfoId() {
-        return productInfoId;
+    public String getApplyCondition() {
+        return applyCondition;
     }
 
-    public void setProductInfoId(Integer productInfoId) {
-        this.productInfoId = productInfoId;
+    public void setApplyCondition(String applyCondition) {
+        this.applyCondition = applyCondition;
     }
 
-    public Integer getClassifyId() {
-        return classifyId;
+    public String getApplyNum() {
+        return applyNum;
     }
 
-    public void setClassifyId(Integer classifyId) {
-        this.classifyId = classifyId;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
-
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    public String getChannelName() {
-        return channelName;
-    }
-
-    public void setChannelName(String channelName) {
-        this.channelName = channelName;
-    }
-
-    public Integer getIsRecommend() {
-        return isRecommend;
-    }
-
-    public void setIsRecommend(Integer isRecommend) {
-        this.isRecommend = isRecommend;
-    }
-
-    public Integer getIsCarefullySelect() {
-        return isCarefullySelect;
-    }
-
-    public void setIsCarefullySelect(Integer isCarefullySelect) {
-        this.isCarefullySelect = isCarefullySelect;
-    }
-
-    public Integer getIsLatestProduct() {
-        return isLatestProduct;
-    }
-
-    public void setIsLatestProduct(Integer isLatestProduct) {
-        this.isLatestProduct = isLatestProduct;
+    public void setApplyNum(String applyNum) {
+        this.applyNum = applyNum;
     }
 
     public Date getCreateTime() {
@@ -151,14 +155,6 @@ public class LoanProduct extends Model<LoanProduct> {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Integer getDelFlag() {
         return delFlag;
     }
@@ -167,25 +163,161 @@ public class LoanProduct extends Model<LoanProduct> {
         this.delFlag = delFlag;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    public String getExplainLabel() {
+        return explainLabel;
+    }
+
+
+    public void setExplainLabel(String explainLabel) {
+        this.explainLabel = explainLabel;
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public String getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(String interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public Integer getInterestRateType() {
+        return interestRateType;
+    }
+
+    public void setInterestRateType(Integer interestRateType) {
+        this.interestRateType = interestRateType;
+    }
+
+    public Integer getIsHide() {
+        return isHide;
+    }
+
+    public void setIsHide(Integer isHide) {
+        this.isHide = isHide;
+    }
+
+    public String getLoanAmountScope() {
+        return loanAmountScope;
+    }
+
+
+    public void setLoanAmountScope(String loanAmountScope) {
+        this.loanAmountScope = loanAmountScope;
+    }
+
+
+    public String getLoanTimeScope() {
+        return loanTimeScope;
+    }
+
+
+    public void setLoanTimeScope(String loanTimeScope) {
+        this.loanTimeScope = loanTimeScope;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNeedDatum() {
+        return needDatum;
+    }
+
+    public void setNeedDatum(String needDatum) {
+        this.needDatum = needDatum;
+    }
+
+    public String getObtainTime() {
+        return obtainTime;
+    }
+
+    public void setObtainTime(String obtainTime) {
+        this.obtainTime = obtainTime;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
     public String toString() {
         return "LoanProduct{" +
                 ", id=" + id +
-                ", productInfoId=" + productInfoId +
-                ", classifyId=" + classifyId +
-                ", clientName=" + clientName +
-                ", channelName=" + channelName +
-                ", isRecommend=" + isRecommend +
-                ", isCarefullySelect=" + isCarefullySelect +
-                ", isLatestProduct=" + isLatestProduct +
+                ", title=" + title +
+                ", name=" + name +
+                ", description=" + description +
+                ", explainLabel=" + explainLabel +
+                ", sort=" + sort +
+                ", interestRate=" + interestRate +
+                ", interestRateType=" + interestRateType +
+                ", applyCondition=" + applyCondition +
+                ", needDatum=" + needDatum +
+                ", loanAmountScope=" + loanAmountScope +
+                ", loanTimeScope=" + loanTimeScope +
+                ", applyNum=" + applyNum +
+                ", obtainTime=" + obtainTime +
+                ", iconUrl=" + iconUrl +
+                ", isHide=" + isHide +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", delFlag=" + delFlag +
                 "}";
     }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+
 }

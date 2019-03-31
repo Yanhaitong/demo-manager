@@ -16,10 +16,14 @@ public class AdvertisingAddDTO {
 	/**
 	 * 广告位置
 	 */
-	private String type;
+	private String location;
 	/**
 	 * 客户端名称（多个）
 	 */
 	private List<String> clientNames;
+	/**
+	 * 图片url
+	 */
+	private String imageUrl;
 
 }

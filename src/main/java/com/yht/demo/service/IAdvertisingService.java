@@ -13,7 +13,7 @@ public interface IAdvertisingService {
 
     IPage<Map<String, String>> getAdvertisingList(AdvertisingReceiveDTO advertisingReceiveDTO);
 
-    void addAdvertising(AdvertisingAddDTO advertisingParameterDTO);
+    void addAdvertising(AdvertisingAddDTO advertisingAddDTO);
 
     void updateAdvertising(AdvertisingUpdateDTO advertisingUpdateDTO);
 

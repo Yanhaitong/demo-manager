@@ -31,8 +31,8 @@ public class AdvertisingController extends BaseController {
 
     @PostMapping("/addAdvertising")
     @ApiOperation(value = "添加产品广告")
-    public Result addAdvertising(@RequestBody AdvertisingAddDTO advertisingParameterDTO) {
-        advertisingService.addAdvertising(advertisingParameterDTO);
+    public Result addAdvertising(@RequestBody AdvertisingAddDTO advertisingAddDTO) {
+        advertisingService.addAdvertising(advertisingAddDTO);
         return Result.success("成功");
     }
 

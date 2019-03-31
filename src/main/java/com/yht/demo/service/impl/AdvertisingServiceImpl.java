@@ -32,7 +32,8 @@ public class AdvertisingServiceImpl implements IAdvertisingService {
     public void addAdvertising(AdvertisingAddDTO advertisingAddDTO) {
         LoanProductAdvertising loanProductAdvertising = new LoanProductAdvertising();
         loanProductAdvertising.setProductInfoId(Integer.valueOf(advertisingAddDTO.getProductInfoId()));
-        loanProductAdvertising.setType(Integer.valueOf(advertisingAddDTO.getType()));
+        loanProductAdvertising.setLocation(Integer.valueOf(advertisingAddDTO.getLocation()));
+        loanProductAdvertising.setCover(advertisingAddDTO.getImageUrl());
         loanProductAdvertising.setCreateTime(new Date());
         for (String clientName: advertisingAddDTO.getClientNames()) {
             loanProductAdvertising.setClientName(clientName);
@@ -44,8 +45,9 @@ public class AdvertisingServiceImpl implements IAdvertisingService {
     public void updateAdvertising(AdvertisingUpdateDTO advertisingUpdateDTO) {
         LoanProductAdvertising loanProductAdvertising = new LoanProductAdvertising();
         loanProductAdvertising.setProductInfoId(Integer.valueOf(advertisingUpdateDTO.getProductInfoId()));
-        loanProductAdvertising.setType(Integer.valueOf(advertisingUpdateDTO.getType()));
+        loanProductAdvertising.setLocation(Integer.valueOf(advertisingUpdateDTO.getLocation()));
         loanProductAdvertising.setClientName(advertisingUpdateDTO.getClientName());
+        loanProductAdvertising.setCover(advertisingUpdateDTO.getImageUrl());
         loanProductAdvertising.setUpdateTime(new Date());
         loanProductAdvertising.setId(Integer.valueOf(advertisingUpdateDTO.getId()));
         loanProductAdvertisingMapper.updateById(loanProductAdvertising);
