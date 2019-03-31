@@ -7,10 +7,7 @@ import com.yht.demo.service.ISystemMessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api("系统消息")
 @RestController
@@ -23,7 +20,7 @@ public class SysMessageController extends BaseController {
 
 	@PostMapping("/pushSystemMessage")
 	@ApiOperation(value = "推送系统消息")
-	public Result pushSystemMessage(@RequestParam PushMessageReceiveDTO pushMessageReceiveDTO) {
+	public Result pushSystemMessage(@RequestBody PushMessageReceiveDTO pushMessageReceiveDTO) {
 		systemMessageService.pushSystemMessage(pushMessageReceiveDTO);
 		return Result.success("发送成功！");
 	}
