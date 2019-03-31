@@ -18,8 +18,8 @@
     <select id="getAdvertisingList" resultType="java.util.Map" parameterType="com.yht.demo.entity.dto.AdvertisingReceiveDTO">
         SELECT
         lpa.id_ AS id,
-        lpi.name_ as productName,
-        lpi.id_ as productInfoId,
+        lp.name_ as productName,
+        lp.id_ as productInfoId,
         lpa.location_ as location,
         CASE lpa.location_ WHEN 0 THEN '启动图'
         WHEN 1 THEN '首页弹框'
@@ -29,11 +29,11 @@
         DATE_FORMAT(lpa.create_time,'%Y-%m-%d') as dataTime
         FROM
         loan_product_advertising lpa
-        LEFT JOIN loan_product_info lpi ON lpi.id_ = lpa.product_info_id and lpi.del_flag = 0
+        LEFT JOIN loan_product lp ON lp.id_ = lpa.product_info_id and lp.del_flag = 0
         WHERE
         lpa.del_flag = 0
         <if test="advertisingReceiveDTO.productName != null and advertisingReceiveDTO.productName != ''">
-            and lpi.name_ like CONCAT('%','${advertisingReceiveDTO.productName}','%')
+            and lp.name_ like CONCAT('%','${advertisingReceiveDTO.productName}','%')
         </if>
         <if test="advertisingReceiveDTO.clientName != null and advertisingReceiveDTO.clientName != ''">
             and lpa.client_name = #{advertisingReceiveDTO.clientName}

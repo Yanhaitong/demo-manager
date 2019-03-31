@@ -3,6 +3,7 @@ package com.yht.demo.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yht.demo.common.BaseService;
+import com.yht.demo.common.Result;
 import com.yht.demo.entity.dto.LoanProductConfigReceiveDTO;
 import com.yht.demo.entity.dto.LoanProductConfigReturnDTO;
 import com.yht.demo.entity.model.LoanProductConfig;
@@ -53,6 +54,11 @@ public class LoanProductConfigServiceImpl extends BaseService implements ILoanPr
 	@Override
 	public void hiddenOrShowProduct(String productId, String isHide) {
 		loanProductConfigMapper.hiddenOrShowProduct(productId, isHide);
+	}
+
+	@Override
+	public Result loanProductConfigParameter() {
+		return null;
 	}
 
 }

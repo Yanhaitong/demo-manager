@@ -19,4 +19,5 @@ public interface ILoanProductService {
 
     Result uploadCredentials(String bucket);
 
+    void hiddenProduct(String productId, String isHide);
 }

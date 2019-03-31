@@ -47,6 +47,13 @@ public class LoanProductController extends BaseController {
         return Result.success(loanProductReturnDTOIPage);
     }
 
+    @PostMapping("/hiddenProduct")
+    @ApiOperation(value = "隐藏或显示产品信息")
+    public Result hiddenProduct(@RequestParam String productId, @RequestParam String isHide) {
+        loanProductService.hiddenProduct(productId, isHide);
+        return Result.success("成功");
+    }
+
     @PostMapping("/getAllProducts")
     @ApiOperation(value = "获取产品信息列表（条件查询使用）")
     public Result getAllProducts() {

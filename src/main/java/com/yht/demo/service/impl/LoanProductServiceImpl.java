@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -48,9 +49,16 @@ public class LoanProductServiceImpl implements ILoanProductService {
         return loanProductReturnDTOIPage;
     }
 
+
+    @Override
+    public void hiddenProduct(String productId, String isHide) {
+        loanProductMapper.hiddenProduct(productId, isHide);
+    }
+
     @Override
     public Result getAllProducts() {
-        return null;
+        List<Map<String, String>> allProducts = loanProductMapper.getAllProducts();
+        return Result.success(allProducts);
     }
 
     @Override
@@ -58,21 +66,19 @@ public class LoanProductServiceImpl implements ILoanProductService {
 
         // 密钥配置
         Auth auth = Auth.create(Constant.QINIU_ACCESS_KEY, Constant.QINIU_SECRET_KEY);
-
         // 要上传的空间
         if (bucket == null || "".equals(bucket.trim())) {
             bucket = Constant.QINIU_ICON_BUCKET;
         }
-
         //上传到七牛后保存的文件名
-        String fileName = bucket + "_" + System.currentTimeMillis() + ".png";
-
+        String key = bucket + "_" + System.currentTimeMillis() + ".png";
         //上传到七牛云的token
-        String uploadToken = auth.uploadToken("app_package", fileName, 300, new StringMap());
+        String token = auth.uploadToken(bucket, key, 300, new StringMap());
         Map<String, Object> map = new HashMap<>();
-        map.put("uploadToken", uploadToken);
-        map.put("fileName", fileName);
+        map.put("token", token);
+        map.put("key", key);
 
         return Result.success(map);
     }
+
 }

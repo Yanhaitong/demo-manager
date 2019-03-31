@@ -22,8 +22,9 @@ import java.util.Map;
 @Repository
 public interface LoanProductMapper extends BaseMapper<LoanProduct> {
 
-	List<Map<String, String>> getAllProducts();
-
 	IPage<LoanProductReturnDTO> getLoanProductList(@Param("page") Page page, @Param("title") String title);
 
+	List<Map<String, String>> getAllProducts();
+
+    void hiddenProduct(@Param("id") String id, @Param("isHide") String isHide);
 }

@@ -30,21 +30,28 @@
         SELECT
             *
         FROM
-            loan_product_info
+            loan_product
         WHERE
             del_flag = 0
+            and is_hide = 0
         <if test="title != null and title != 'undefined'">
             and title_ like CONCAT('%','${title}','%')
         </if>
         order by create_time desc
     </select>
 
+    <update id="hiddenProduct" parameterType="java.lang.String">
+        UPDATE loan_product
+        SET is_hide = #{isHide}
+        where id_ = #{id}
+    </update>
+
     <select id="getAllProducts" resultType="java.util.Map">
         SELECT
             id_ as id,
             name_ as name
         FROM
-            loan_product_info
+            loan_product
         WHERE
             del_flag = 0
     </select>

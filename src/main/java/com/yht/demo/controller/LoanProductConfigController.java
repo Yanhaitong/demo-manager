@@ -34,17 +34,17 @@ public class LoanProductConfigController extends BaseController {
         return Result.success(loanProductConfigReturnDTOIPage);
     }
 
-    @PostMapping("/hiddenOrShowProduct")
-    @ApiOperation(value = "隐藏或显示产品信息")
-    public Result hiddenOrShowProduct(@RequestParam String productId, @RequestParam String isHide) {
+    @PostMapping("/hiddenProduct")
+    @ApiOperation(value = "隐藏产品配置")
+    public Result hiddenProduct(@RequestParam String productId, @RequestParam String isHide) {
         loanProductConfigService.hiddenOrShowProduct(productId, isHide);
         return Result.success("成功");
     }
 
-    /*@PostMapping("/loanProductConfigParameter")
+    @PostMapping("/loanProductConfigParameter")
     @ApiOperation(value = "产品配置参数")
-    public Result loanProductConfigParameter(@RequestBody LoanProduct loanProduct) {
-        return loanProductService.loanProductConfigParameter(loanProduct);
-    }*/
+    public Result loanProductConfigParameter() {
+        return loanProductConfigService.loanProductConfigParameter();
+    }
 
 }

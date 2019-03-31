@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * <p>
- * 产品主表新增参数表
+ * 产品主表新增更新参数表
  * </p>
  *
  * @author
@@ -14,6 +14,8 @@ import lombok.Data;
 @Data
 public class LoanProductReceiveDTO {
 
+    @ApiModelProperty(name = "id", value = "主键id", required = true)
+    private String id;
     @ApiModelProperty(name = "applyCondition", value = "申请条件", required = true)
     private String applyCondition;
     @ApiModelProperty(name = "title", value = "产品标题", required = true)
